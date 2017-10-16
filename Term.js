@@ -117,7 +117,7 @@ function storeDictionary(text) {
     var textArray = text.split("\n");
     for(var i = 0; i < textArray.length; i++) {
         var termPieces = textArray[i].split("\t");
-        console.log(termPieces)
+        console.log(termPieces);
         termsArray.push(new Term(termPieces[1].trim(), termPieces[0].trim()));
     }
     termArray = termsArray;
