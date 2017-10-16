@@ -21,9 +21,9 @@ Author: Mark Guan
     matches = findAllMatches("a", arr);
     console.log(matches);
     
-    wikitionary = readTextFile("wiktionary.txt");
+    wiktionary = readTextFile("wiktionary.txt");
     
-    console.log(wikitionary);
+    console.log(wiktionary);
 })();
 
 //An autocomplete term: a query string and an associated integer weight.
@@ -107,6 +107,7 @@ function readTextFile(file) {
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
+                console.log("hit");
                 var allText = rawFile.responseText;
                 alert(allText);
                 return allText;
