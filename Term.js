@@ -100,7 +100,7 @@ function findAllMatches(prefix, arrayOfTerms) {
 // reads in local text file on the server
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
+    rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function ()
     {
         if(rawFile.readyState === 4)
