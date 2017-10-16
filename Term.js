@@ -21,7 +21,7 @@ Author: Mark Guan
     matches = findAllMatches("a", arr);
     console.log(matches);
     
-    wiktionary = readTextFile("wiktionary.txt");
+    readTextFile("wiktionary.txt");
     
     console.log(wiktionary);
 })();
@@ -109,10 +109,13 @@ function readTextFile(file) {
             {
                 console.log("hit");
                 var allText = rawFile.responseText;
-                alert(allText);
-                return allText;
+                storeDictionary(allText);
             }
         }
     }
     rawFile.send(null);
+}
+
+function storeDictionary(text) {
+    console.log(text);
 }
