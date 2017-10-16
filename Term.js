@@ -4,8 +4,14 @@ Date: 10/15/17
 Author: Mark Guan
 */
 
+var termArray;
 
 (function () {
+    readInTextFile("wiktionary.txt");
+    
+    console.log(termArray);
+    
+
     var test = new Term("c", 3);
     var test2 = new Term("apple", 15);
     var test3 = new Term("a", 10);
@@ -20,10 +26,6 @@ Author: Mark Guan
     
     matches = findAllMatches("a", arr);
     console.log(matches);
-    
-    readTextFile("wiktionary.txt");
-    
-    console.log(wiktionary);
 })();
 
 //An autocomplete term: a query string and an associated integer weight.
@@ -98,7 +100,7 @@ function findAllMatches(prefix, arrayOfTerms) {
 }
 
 // reads in local text file on the server
-function readTextFile(file) {
+function readInTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function ()
@@ -117,5 +119,11 @@ function readTextFile(file) {
 }
 
 function storeDictionary(text) {
-    console.log(text);
+    termsArray = []
+    var textArray = text.split("\n");
+    for(var i = 0; i < textArray.length; i++) {
+        var termPieces = textArray.split("\t");
+        termArray.push(new Term(termPieces[1].trim, termPieces[0].trim));
+    }
+    termArray = termsArray;
 }
