@@ -12,7 +12,6 @@ Author: Mark Guan
     var test4 = new Term("dog", 27);
     var test5 = new Term("applcup", 29);
     console.log(test)
-    //console.log(compareByReverseWeightOrder(test, test2));
     arr = [test,test2, test3, test4, test5];
     arr.sort(compareTermsAlphabetically);
     
@@ -22,7 +21,9 @@ Author: Mark Guan
     matches = findAllMatches("a", arr);
     console.log(matches);
     
-    readTextFile("wiktionary.txt");
+    wikitionary = readTextFile("wiktionary.txt");
+    
+    console.log(wikitionary);
 })();
 
 //An autocomplete term: a query string and an associated integer weight.
@@ -96,6 +97,7 @@ function findAllMatches(prefix, arrayOfTerms) {
     return matches;
 }
 
+// reads in local text file on the server
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -106,7 +108,7 @@ function readTextFile(file) {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                alert(allText);
+                return allText;
             }
         }
     }
