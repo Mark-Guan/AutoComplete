@@ -115,7 +115,7 @@ function readInTextFile(file) {
 function storeDictionary(text) {
     termsArray = []
     var textArray = text.split("\n");
-    consonle.log(textArray.length);
+    console.log(textArray.length);
     for(var i = 0; i < textArray.length; i++) {
         var termPieces = textArray[i].split("\t");
         if(termPieces.length == 2) {
