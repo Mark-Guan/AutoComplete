@@ -4,6 +4,7 @@ Date: 10/15/17
 Author: Mark Guan
 */
 
+// dictionary of words being used for autocomplete
 var termArray;
 
 (function () {
@@ -11,7 +12,6 @@ var termArray;
     
     console.log(termArray);
     
-
     var test = new Term("c", 3);
     var test2 = new Term("apple", 15);
     var test3 = new Term("a", 10);
@@ -44,12 +44,6 @@ function compareByReverseWeightOrder(firstTerm, secondTerm) {
     }
     return 0;
 }
-
-//
-//// Compares the two terms in lexicographic order but using only the first r characters of each query.
-//function biggerAlphabeticallyPrefix(firstTerm, secondTerm, r) {
-//    return firstTerm.query.substring(0,r) > secondTerm.query.substring(0,r)
-//}
 
 //Compares the two terms in lexicographic order by query. Used in sorting method.
 function compareTermsAlphabetically(firstTerm, secondTerm) {
@@ -122,8 +116,8 @@ function storeDictionary(text) {
     termsArray = []
     var textArray = text.split("\n");
     for(var i = 0; i < textArray.length; i++) {
-        var termPieces = textArray.split("\t");
-        termArray.push(new Term(termPieces[1].trim, termPieces[0].trim));
+        var termPieces = textArray[i].split("\t");
+        termArray.push(new Term(termPieces[1].trim(), termPieces[0].trim()));
     }
     termArray = termsArray;
 }
