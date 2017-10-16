@@ -11,6 +11,7 @@ var termArray;
     readInTextFile("wiktionary.txt");
     
     console.log(termArray);
+    console.log(termArray.length);
     
     var test = new Term("c", 3);
     var test2 = new Term("apple", 15);
@@ -115,7 +116,6 @@ function readInTextFile(file) {
 function storeDictionary(text) {
     termsArray = []
     var textArray = text.split("\n");
-    console.log(textArray.length);
     for(var i = 0; i < textArray.length; i++) {
         var termPieces = textArray[i].split("\t");
         if(termPieces.length == 2) {
